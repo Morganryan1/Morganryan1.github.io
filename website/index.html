@@ -1,102 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Morgan M. Ryan - GIS Specialist">
-  <title>Morgan M. Ryan, MA | GIS Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morgan Ryan – Portfolio</title>
+  <meta name="description" content="Morgan Ryan – GIS Product Engineer portfolio. Python, JavaScript, ArcGIS Enterprise, automation, Web AppBuilder." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-<header class="site-header">
-  <a class="brand" href="/website/index.html">Morgan Ryan, MA</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="/website/index.html">Home</a>
-    <a href="/website/academic.html">Academic</a>
-    <a href="/website/professional.html">Professional</a>
-    <a href="/website/personal.html">Personal</a>
-    <a href="/website/assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
-  </nav>
-</header>
+
+  <!-- Shared Header -->
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html">Academic</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
+    </nav>
+  </header>
+
   <main class="main">
-  <section class="section">
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0 0 var(--space-2)">Morgan Ryan</h1>
-    <p class="muted" style="max-width:60ch">
-      GIS-focused Product Engineer • Python & JavaScript • ArcGIS Enterprise, Web AppBuilder, automation.
-    </p>
-    <div style="margin-top:var(--space-3); display:flex; gap:var(--space-2); flex-wrap:wrap">
-      <a class="btn" href="/website/academic.html">Academic</a>
-      <a class="btn" href="/website/professional.html">Professional</a>
-      <a class="btn" href="/website/personal.html">Personal</a>
-      <a class="btn" href="https://github.com/Morganryan1" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="/website/assets/morgan_ryan_resume.pdf">Resume</a>
-    </div>
-  </section>
-</main>
-  <main>
-    <section id="about">
-  <h2>About Me</h2>
-  <p>
-    I’m <strong>Morgan M. Ryan, MA</strong> — a GIS Analyst and Researcher with a passion for geospatial data, automation, and applied geography. 
-    My work integrates <strong>Python scripting, web cartography, and GIS system design</strong> to streamline data-driven decision-making and spatial analysis.
-  </p>
+    <section class="section">
+      <h1>Morgan Ryan</h1>
+      <p class="muted">GIS Product Engineer • Python & JavaScript • ArcGIS Enterprise, automation, Web AppBuilder.</p>
 
-  <p>
-    I currently serve as a <strong>Senior GIS Analyst at Philadelphia Gas Works</strong>, where I lead automation and data integrity initiatives 
-    across the Esri Enterprise ecosystem. Previously, I’ve worked as a <strong>Solutions Engineer at Geographic Consulting Group International</strong>, 
-    supporting Esri Utility Network adoption for U.S. military installations, and as a <strong>Senior IT Applications Developer</strong> 
-    within Nebraska’s Office of the Chief Information Officer, where I built automation tools for statewide GIS operations.
-  </p>
-
-  <p>
-    My professional experience spans <strong>GIS automation, data modeling, and web application development</strong>, with 
-    an emphasis on enhancing accessibility and efficiency in enterprise environments. I’ve developed and maintained 
-    GNSS field programs, implemented automated quality checks, and built dashboards that connect data insights to decision-makers.
-  </p>
-
-  <p>
-    Before entering the professional sector, I earned my <strong>Master of Arts in Geography</strong> from the 
-    <strong>University of Nebraska–Lincoln</strong>, where my thesis, 
-    <em>“Reexamining the Desert: A Study of Place-Based Food Insecurity,”</em> expanded USDA’s food desert methodology 
-    using mixed-method and place-based analysis. During my graduate studies, I also served as a <strong>Graduate Teaching Assistant</strong>, 
-    teaching GIS and web mapping using ArcGIS Pro, QGIS, and JavaScript libraries such as Leaflet and D3.js.
-  </p>
-
-  <p>
-    My academic and professional journey reflects a deep curiosity for how geography, data, and human behavior intersect. 
-    In the future, I plan to pursue a <strong>PhD in Geography</strong> to further explore the relationships between 
-    place, access, and spatial inequity through computational and web-based geographies.
-  </p>
-
-  <p>
-    Outside of work, I enjoy community engagement, mentoring emerging GIS professionals, and exploring new methods of spatial storytelling through design and technology.
-  </p>
-</section>
-
-
-    <section id="overview">
-      <h2>Explore My Work</h2>
-      <div class="link-cards">
-        <a href="professional.html" class="card">
-          <h3>Professional</h3>
-          <p>Explore my work in GIS, product development, and applied geospatial analysis.</p>
-        </a>
-        <a href="academic.html" class="card">
-          <h3>Academic</h3>
-          <p>Learn about my research background, thesis work, and teaching experience.</p>
-        </a>
-        <a href="personal.html" class="card">
-          <h3>Personal</h3>
-          <p>See personal projects, coding experiments, and creative map designs.</p>
-        </a>
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem">
+        <a class="btn" href="academic.html">Academic</a>
+        <a class="btn" href="professional.html">Professional</a>
+        <a class="btn" href="personal.html">Personal</a>
+        <a class="btn" href="https://github.com/Morganryan1" target="_blank">GitHub</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Morgan M. Ryan. All rights reserved.</p>
-  </footer>
+  <script src="js/nav.js"></script>
 </body>
 </html>
