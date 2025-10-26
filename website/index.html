@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Morgan Ryan – Portfolio</title>
   <meta name="description" content="Morgan Ryan – GIS Product Engineer portfolio. Python, JavaScript, ArcGIS Enterprise, automation, Web AppBuilder." />
+
+  <!-- ✅ Corrected relative CSS path -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -14,7 +16,7 @@
     <a class="brand" href="index.html">MR</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="academic.html">Academic</a>
       <a href="professional.html">Professional</a>
       <a href="personal.html">Personal</a>
@@ -23,19 +25,22 @@
   </header>
 
   <main class="main">
-    <section class="section">
+    <section class="section hero">
       <h1>Morgan Ryan</h1>
-      <p class="muted">GIS Product Engineer • Python & JavaScript • ArcGIS Enterprise, automation, Web AppBuilder.</p>
+      <p class="muted">
+        GIS Product Engineer • Python & JavaScript • ArcGIS Enterprise, automation, and Web AppBuilder.
+      </p>
 
-      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem">
+      <div class="button-group">
         <a class="btn" href="academic.html">Academic</a>
         <a class="btn" href="professional.html">Professional</a>
         <a class="btn" href="personal.html">Personal</a>
-        <a class="btn" href="https://github.com/Morganryan1" target="_blank">GitHub</a>
+        <a class="btn" href="https://github.com/Morganryan1" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
   </main>
 
+  <!-- ✅ Corrected JS path -->
   <script src="js/nav.js"></script>
 </body>
 </html>
