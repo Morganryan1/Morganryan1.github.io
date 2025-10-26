@@ -71,3 +71,14 @@
       <ul>
         <li>Conducted watershed-scale modeling for FEMA submissions and Base Flood Elevation analyses.</li>
         <li>Authored technical reports detailing flood
+  <script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>
+
