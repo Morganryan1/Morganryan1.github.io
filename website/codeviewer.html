@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Viewer</title>
+
+  <!-- Highlight.js syntax highlighting -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Fira Code", monospace;
+      background: #0d1117;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: #58a6ff;
+      margin-bottom: 1rem;
+      word-break: break-all;
+    }
+    pre {
+      background: #161b22;
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .error {
+      color: #f85149;
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="back-btn" href="index.html">← Back to Portfolio</a>
+  <h1 id="title">Loading Code...</h1>
+  <pre><code id="codeBlock"></code></pre>
+
+  <script>
+    // Parse URL parameter ?src=
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get("src");
+
+    // Detect file extension to assign highlight.js class
+    function getLanguageClass(filename) {
+      const ext = filename.split(".").pop().toLowerCase();
+      switch (ext) {
+        case "py": return "language-python";
+        case "js": return "language-javascript";
+        case "html": return "language-html";
+        case "css": return "language-css";
+        case "json": return "language-json";
+        case "xml": return "language-xml";
+        case "java": return "language-java";
+        case "cpp":
+        case "cc":
+        case "cxx":
+        case "h": return "language-cpp";
+        case "sh":
+        case "bash": return "language-bash";
+        default: return ""; // let Highlight.js auto-detect
+      }
+    }
+
+    const titleEl = document.getElementById("title");
+    const codeEl = document.getElementById("codeBlock");
+
+    if (!src) {
+      titleEl.textContent = "No code source specified.";
+      codeEl.innerHTML =
+        '<div class="error">Usage: codeviewer.html?src=[URL_to_raw_code_file]</div>';
+    } else {
+      const filename = decodeURIComponent(src.split("/").pop());
+      const langClass = getLanguageClass(filename);
+      titleEl.textContent = filename;
+
+      fetch(src)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load (${response.status})`);
+          return response.text();
+        })
+        .then(data => {
+          codeEl.className = langClass;
+          codeEl.textContent = data;
+          hljs.highlightElement(codeEl);
+        })
+        .catch(err => {
+          codeEl.innerHTML = `<div class="error">Error loading code: ${err.message}</div>`;
+        });
+    }
+  </script>
+</body>
+</html>
