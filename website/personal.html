@@ -48,6 +48,20 @@
     <!-- Add more <article> cards mirroring your repo layout -->
   </div>
 </section>
+  <script>
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('#project-grid .card');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    const tag = c.dataset.filter;
+    cards.forEach(card => {
+      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
+      card.style.display = show ? '' : 'none';
+    });
+  }));
+</script>
+
     <section>
       <h2>Experience</h2>
       <ul>
