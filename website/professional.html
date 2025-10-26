@@ -50,66 +50,78 @@
       </div>
     </section>
 
-    <!-- New PGW Section -->
-    <section class="section">
+    <section class="section" id="pgw">
       <h3>Current Role: Senior GIS Analyst – Philadelphia Gas Works</h3>
-      <p>
-        At Philadelphia Gas Works (PGW), I lead geospatial data initiatives that support critical infrastructure
-        management, field operations, and regulatory compliance across the city’s natural gas network.
-        My work focuses on building automated, data-driven solutions that enhance accuracy, speed, and collaboration
-        within PGW’s enterprise GIS ecosystem.
-      </p>
-
-      <p>
-        A major focus of my role is <strong>automating data collection and cleaning processes</strong> using Python, JavaScript,
-        and ArcGIS Enterprise tools. These automations reduce manual data entry, detect and correct geometry or schema inconsistencies,
-        and ensure our spatial databases meet rigorous accuracy standards. The result is a GIS system our engineers and field crews
-        can trust for real-time decision-making.
-      </p>
-
-      <p>
-        I also <strong>design and maintain ArcGIS Enterprise applications</strong> tailored to PGW’s operational workflows.
-        These include interactive dashboards, field collection tools, and web maps that visualize asset conditions,
-        pipeline maintenance status, and service requests. Each application is built to streamline how departments
-        interact with geospatial data—making it faster to locate assets, assess field conditions, and report updates.
-      </p>
-
-      <p>
-        As part of PGW’s <strong>Geographic Information Office</strong>, I oversee the integrity and accessibility
-        of our <strong>Enterprise GIS environment</strong>, ensuring that spatial data flows seamlessly between
-        engineering, field, and IT teams. This includes managing user permissions, maintaining server health,
-        and optimizing data interoperability between Esri and non-Esri systems.
-      </p>
-
-      <p>
-        I also lead our <strong>GNSS-enabled field data collection program</strong>, which integrates sub-meter accuracy
-        data from field crews into our enterprise database. By pairing GNSS technology with mobile GIS tools,
-        we’ve significantly improved positional precision and reduced post-processing time.
-        This has led to faster updates, fewer data conflicts, and improved pipeline traceability.
-      </p>
-
-      <p>
-        To support operational visibility, I’ve developed <strong>custom dashboards and data quality audits</strong>
-        that track project progress, highlight anomalies, and automate data verification steps.
-        These systems provide near real-time insight into work orders, construction activities,
-        and asset updates—ensuring that PGW’s spatial data remains complete, compliant, and current.
-      </p>
-
-      <p>
-        My role also extends to <strong>mentorship and collaboration</strong>.
-        I supervise GIS technicians responsible for data editing and field verification,
-        helping standardize editing protocols and ensure on-time project delivery.
-        I also coordinate with engineers, IT specialists, and compliance officers to align GIS workflows
-        with organizational objectives—supporting everything from <strong>pipeline maintenance and asset management</strong>
-        to <strong>regulatory audits and safety planning</strong>.
-      </p>
-
-      <p>
-        By combining scripting automation, field mobility, and system integration,
-        I’m helping PGW modernize how spatial data supports utility operations—reducing redundancy,
-        improving accuracy, and empowering teams to make better, faster, data-backed decisions.
-      </p>
+    
+      <div class="pgw-grid">
+        <!-- Text and image pair 1 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              At Philadelphia Gas Works (PGW), I lead geospatial data initiatives that support critical infrastructure
+              management, field operations, and regulatory compliance across the city’s natural gas network.
+              My work focuses on building automated, data-driven solutions that enhance accuracy, speed, and collaboration
+              within PGW’s enterprise GIS ecosystem.
+            </p>
+          </div>
+          <img src="images/pgw/Flex3Dashboard.png" alt="PGW Enterprise GIS Overview Dashboard" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 2 -->
+        <div class="pgw-item reverse">
+          <div class="pgw-text">
+            <p>
+              A major focus of my role is <strong>automating data collection and cleaning processes</strong> using Python, JavaScript,
+              and ArcGIS Enterprise tools. These automations reduce manual data entry, detect and correct geometry or schema inconsistencies,
+              and ensure our spatial databases meet rigorous accuracy standards. 
+              This image demonstraits a script that used multiprocessing to perform six hundred thousand edits in less than 10 minutes.
+              The result is a GIS system our engineers and field crews can trust for real-time decision-making.
+            </p>
+          </div>
+          <img src="images/pgw/BulkUpdateScript.png" alt="Automated Data Cleaning Workflow" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 3 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              I also <strong>design and maintain ArcGIS Enterprise applications</strong> tailored to PGW’s operational workflows.
+              These include interactive dashboards, field collection tools, and web maps that visualize asset conditions,
+              pipeline maintenance status, and service requests. Each application is built to streamline how departments
+              interact with geospatial data—making it faster to locate assets, assess field conditions, and report updates.
+            </p>
+          </div>
+          <img src="images/pgw/BigDataDashboard.png" alt="19 Million Data Point Dashboard" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 4 -->
+        <div class="pgw-item reverse">
+          <div class="pgw-text">
+            <p>
+              I lead our <strong>GNSS-enabled field data collection program</strong>, integrating sub-meter accuracy
+              data from field crews into our enterprise database. By pairing GNSS technology with mobile GIS tools,
+              we’ve significantly improved positional precision and reduced post-processing time—
+              leading to faster updates and improved pipeline traceability.
+            </p>
+          </div>
+          <img src="images/pgw/FDCOperationsApp.png" alt="GNSS Field Data Collection App" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 5 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              To support operational visibility, I’ve developed <strong>custom dashboards and data quality audits</strong>
+              that track project progress, highlight anomalies, and automate data verification steps.
+              These systems provide near real-time insight into work orders, construction activities,
+              and asset updates—ensuring PGW’s spatial data remains complete and compliant.
+            </p>
+          </div>
+          <img src="images/pgw/FeedBackApp.png" alt="GIS Data Quality Dashboard" loading="lazy" />
+        </div>
+      </div>
     </section>
+
   </main>
 
   <script src="js/nav.js"></script>
