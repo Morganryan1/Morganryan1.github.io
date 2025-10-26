@@ -339,6 +339,50 @@ body {
   align-items: center;
 }
 
+/* PGW Portfolio Layout */
+.pgw-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.pgw-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pgw-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.pgw-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.pgw-item img {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pgw-item img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .pgw-item {
+    flex-direction: column;
+  }
+}
+
 /* =========================================================
    FOOTER
 ========================================================= */
