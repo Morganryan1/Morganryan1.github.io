@@ -18,6 +18,44 @@ header {
   color: #fff;
   padding: 20px;
 }
+:root{
+  --bg:#0b0d10; --surface:#12161b; --card:#161b22; --text:#e6edf3; --muted:#9aa4b2;
+  --brand:#72d2ff; --accent:#9cff84; --ring:#3a93ff;
+  --radius:16px; --radius-sm:12px;
+  --space-1:.5rem; --space-2:.75rem; --space-3:1rem; --space-4:1.5rem; --space-5:2rem; --space-6:3rem;
+  --maxw:1100px; --shadow:0 8px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:linear-gradient(180deg,var(--bg),#0e1116 30%, #0b0f14);
+  color:var(--text); font:400 16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+.site-header{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px);
+  background:color-mix(in oklab, #0b0d10 80%, #111 20%/60%); border-bottom:1px solid #1f2630;
+  display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);
+  padding:var(--space-3) clamp(var(--space-3),3vw,var(--space-5));
+}
+.brand{font-weight:700; letter-spacing:.5px; text-decoration:none; color:var(--text)}
+.site-nav{display:flex; gap:var(--space-3); align-items:center}
+.site-nav a{color:var(--muted); text-decoration:none; padding:.25rem .5rem; border-radius:10px}
+.site-nav a:hover{color:var(--text); background:#1c232d}
+.btn{display:inline-block; padding:.6rem 1rem; border-radius:999px; background:var(--brand); color:#031018; font-weight:600; text-decoration:none; box-shadow:var(--shadow)}
+.btn.small{padding:.4rem .75rem}
+.nav-toggle{display:none; background:none; border:1px solid #2a3240; color:var(--text); border-radius:10px; padding:.4rem .6rem}
+@media (max-width:800px){
+  .nav-toggle{display:inline-block}
+  .site-nav{position:fixed; inset:64px var(--space-3) auto var(--space-3); flex-direction:column;
+    background:var(--surface); border:1px solid #222a36; padding:var(--space-3); border-radius:var(--radius); display:none}
+  .site-nav.open{display:flex}
+}
+.main{max-width:var(--maxw); margin:0 auto; padding:var(--space-6) clamp(var(--space-3),3vw,var(--space-5))}
+.section{margin-block:var(--space-6)}
+.section h2{font-size:clamp(1.4rem,2.4vw,2rem); margin-bottom:var(--space-3)}
+.muted{color:var(--muted)}
+
 
 .header-container {
   display: flex;
