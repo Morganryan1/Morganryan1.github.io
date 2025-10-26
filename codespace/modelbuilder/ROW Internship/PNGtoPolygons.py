@@ -7,7 +7,7 @@ from arcpy.sa import *
 from sys import argv
 
 #For inline variable substitution, parameters passed as a String are evaluated using locals(), globals() and isinstance(). To override, substitute values directly.
-def PNGtoPolygons(ProjectPNG="6-5(115)_Page_3Test.png", Location="D:\\PRE23\\ryan docs\\Documents\\ArcGIS\\ArcEdit\\OldProjectAdditions", File_GDB_Name):  # PNGtoPolygons
+def PNGtoPolygons(ProjectPNG="6-5(115)_Page_3Test.png", Location="", File_GDB_Name):  # PNGtoPolygons
 
     # To allow overwriting outputs change overwriteOutput option to True.
     arcpy.env.overwriteOutput = False
@@ -16,7 +16,7 @@ def PNGtoPolygons(ProjectPNG="6-5(115)_Page_3Test.png", Location="D:\\PRE23\\rya
     arcpy.CheckOutExtension("3D")
     arcpy.CheckOutExtension("spatial")
 
-    arcpy.ImportToolbox(r"c:\users\cobratype pc\appdata\local\programs\arcgis\pro\Resources\ArcToolbox\toolboxes\Conversion Tools.tbx")
+    arcpy.ImportToolbox(r"")
     Reclassification = "0 85 1;85 240 2;241 255 3"
     Expression = "gridcode = 2"
 
@@ -85,3 +85,4 @@ if __name__ == '__main__':
     # Global Environment settings
     with arcpy.EnvManager(scratchWorkspace="C:\\Users\\Cobratype PC\\Documents\\ArcGIS\\Projects\\Admin\\Admin.gdb", workspace="C:\\Users\\Cobratype PC\\Documents\\ArcGIS\\Projects\\Admin\\Admin.gdb"):
         PNGtoPolygons(*argv[1:])
+
