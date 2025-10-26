@@ -12,20 +12,47 @@ body {
   color: #333;
 }
 
+/* ===== HEADER SECTION ===== */
 header {
   background-color: #333;
   color: #fff;
   padding: 20px;
-  text-align: center;
 }
 
-header h1 {
+/* New container to hold image + text side by side */
+.header-container {
+  display: flex;
+  align-items: center;     /* vertically align image and text */
+  justify-content: center; /* center whole header content horizontally */
+  flex-wrap: wrap;         /* makes it responsive on small screens */
+  gap: 1.5rem;             /* space between image and text */
+  text-align: left;
+}
+
+/* Profile image */
+.profile-pic {
+  height: 100px;           /* adjust as needed for alignment with text */
+  width: auto;             /* maintain aspect ratio */
+  border-radius: 50%;      /* circular crop */
+  object-fit: cover;       /* fill the circle without distortion */
+  border: 2px solid #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Text area next to the image */
+.header-text h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
+.header-text p {
+  margin: 4px 0;
+  font-style: italic;
+}
+
+/* Contact info */
 header .contact {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 header .contact a {
@@ -37,6 +64,7 @@ header .contact a:hover {
   text-decoration: underline;
 }
 
+/* ===== MAIN CONTENT ===== */
 main {
   padding: 20px;
   max-width: 1200px;
@@ -78,6 +106,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 10px;
