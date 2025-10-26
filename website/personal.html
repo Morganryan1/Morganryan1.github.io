@@ -1,97 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional | Morgan M. Ryan</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal | Morgan Ryan</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-<header class="site-header">
-  <a class="brand" href="/website/index.html">Morgan Ryan, MA</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="/website/index.html">Home</a>
-    <a href="/website/academic.html">Academic</a>
-    <a href="/website/professional.html">Professional</a>
-    <a href="/website/personal.html">Personal</a>
-    <a href="/website/assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
-  </nav>
-</header>
 
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html">Academic</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html" class="active">Personal</a>
+      <a href="assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
+    </nav>
+  </header>
 
-  <main>
+  <main class="main">
     <section class="section">
-  <h2>Featured <span class="muted">Projects</span></h2>
-  <div class="filters">
-    <button data-filter="all" class="chip active">All</button>
-    <button data-filter="python" class="chip">Python</button>
-    <button data-filter="javascript" class="chip">JavaScript</button>
-    <button data-filter="gis" class="chip">GIS</button>
-    <button data-filter="devops" class="chip">DevOps</button>
-  </div>
-
-  <div id="project-grid" class="grid cards">
-    <!-- Example card -->
-    <article class="card" data-tags="python gis">
-      <header>
-        <h3>Schema Readiness Un-Migration</h3>
-        <p class="muted">Python · ArcGIS Enterprise · Automation</p>
-      </header>
-      <p>Scripted migration safety tool to diff schema states and roll back unsafe moves during delivery windows.</p>
-      <footer>
-        <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank" rel="noopener">View Code</a>
-      </footer>
-    </article>
-
-    <!-- Add more <article> cards mirroring your repo layout -->
-  </div>
-</section>
-  <script>
-  const chips = document.querySelectorAll('.chip');
-  const cards = document.querySelectorAll('#project-grid .card');
-  chips.forEach(c => c.addEventListener('click', () => {
-    chips.forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    const tag = c.dataset.filter;
-    cards.forEach(card => {
-      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
-      card.style.display = show ? '' : 'none';
-    });
-  }));
-</script>
-
-    <section>
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Product Engineer II – ArcGIS Solutions, Esri</strong><br> Focused on product enablement, workflow automation, and GIS solution development.</li>
-        <li><strong>GIS Application Developer</strong><br> Developed web mapping tools and automated data management workflows using Python and JavaScript.</li>
-      </ul>
+      <h2>Personal <span class="muted">Projects</span></h2>
+      <p class="muted">Creative and experimental projects that blend GIS, design, and automation for fun and learning.</p>
     </section>
 
-    <section>
-      <h2>Highlighted Work</h2>
-      <ul>
-        <li><a href="https://github.com/morganryan1/GIS-Automation-Scripts" target="_blank">GIS Automation Scripts</a> – Streamlined data transformation and enterprise workflows.</li>
-        <li><a href="https://github.com/morganryan1/Lincoln-Food-Insecurity-WebMap" target="_blank">Lincoln Food Insecurity Web Map</a> – Interactive Leaflet-based visualization.</li>
-      </ul>
+    <section class="section">
+      <h3>Projects</h3>
+      <div id="project-grid" class="grid cards">
+        <article class="card" data-tags="python hobby">
+          <header>
+            <h3>Automated Hiking Trail Mapper</h3>
+            <p class="muted">Python · GIS · Leaflet</p>
+          </header>
+          <p>Generates and visualizes hiking trails with elevation profiles using GPS data and open-source mapping tools.</p>
+          <footer>
+            <a class="btn small" href="https://github.com/Morganryan1" target="_blank">View Code</a>
+          </footer>
+        </article>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Morgan M. Ryan. All rights reserved.</p>
-  </footer>
-  <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>
