@@ -1,4 +1,4 @@
-/* General reset */
+/* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -19,27 +19,26 @@ header {
   padding: 20px;
 }
 
-/* New container to hold image + text side by side */
 .header-container {
   display: flex;
-  align-items: center;     /* vertically align image and text */
-  justify-content: center; /* center whole header content horizontally */
-  flex-wrap: wrap;         /* makes it responsive on small screens */
-  gap: 1.5rem;             /* space between image and text */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   text-align: left;
 }
 
 /* Profile image */
 .profile-pic {
-  height: 100px;           /* adjust as needed for alignment with text */
-  width: auto;             /* maintain aspect ratio */
-  border-radius: 50%;      /* circular crop */
-  object-fit: cover;       /* fill the circle without distortion */
+  height: 100px;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
   border: 2px solid #fff;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Text area next to the image */
+/* Header text */
 .header-text h1 {
   margin: 0;
   font-size: 2rem;
@@ -104,6 +103,39 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ===== ACADEMIC PAGE STYLING ===== */
+#education, #research, #involvement {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#education h2, #research h2, #involvement h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.degree, .research-item, .involvement-item {
+  margin-bottom: 25px;
+}
+
+.degree h3, .research-item h3, .involvement-item h3 {
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.degree ul, .research-item ul, .involvement-item ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.degree a, .research-item a, .involvement-item a {
+  font-weight: bold;
 }
 
 /* ===== FOOTER ===== */
