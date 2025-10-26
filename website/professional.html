@@ -2,130 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Experience | Morgan M. Ryan</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional | Morgan Ryan</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-<header class="site-header">
-  <a class="brand" href="/website/index.html">Morgan Ryan, MA</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="/website/index.html">Home</a>
-    <a href="/website/academic.html">Academic</a>
-    <a href="/website/professional.html">Professional</a>
-    <a href="/website/personal.html">Personal</a>
-    <a href="/website/assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
-  </nav>
-</header>
 
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html">Academic</a>
+      <a href="professional.html" class="active">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
+    </nav>
+  </header>
 
-  <main class="content-container">
+  <main class="main">
     <section class="section">
-  <h2>Featured <span class="muted">Projects</span></h2>
-  <div class="filters">
-    <button data-filter="all" class="chip active">All</button>
-    <button data-filter="python" class="chip">Python</button>
-    <button data-filter="javascript" class="chip">JavaScript</button>
-    <button data-filter="gis" class="chip">GIS</button>
-    <button data-filter="devops" class="chip">DevOps</button>
-  </div>
-
-  <div id="project-grid" class="grid cards">
-    <!-- Example card -->
-    <article class="card" data-tags="python gis">
-      <header>
-        <h3>Schema Readiness Un-Migration</h3>
-        <p class="muted">Python · ArcGIS Enterprise · Automation</p>
-      </header>
-      <p>Scripted migration safety tool to diff schema states and roll back unsafe moves during delivery windows.</p>
-      <footer>
-        <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank" rel="noopener">View Code</a>
-      </footer>
-    </article>
-
-    <!-- Add more <article> cards mirroring your repo layout -->
-  </div>
-</section>
-    <script>
-  const chips = document.querySelectorAll('.chip');
-  const cards = document.querySelectorAll('#project-grid .card');
-  chips.forEach(c => c.addEventListener('click', () => {
-    chips.forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    const tag = c.dataset.filter;
-    cards.forEach(card => {
-      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
-      card.style.display = show ? '' : 'none';
-    });
-  }));
-</script>
-<main class="main">
-  <section class="section">
-    <h2>Professional <span class="muted">Work</span></h2>
-    <p class="muted">Selected projects, tools, and write-ups focusing on ArcGIS Enterprise automation, Web AppBuilder, and data pipelines.</p>
-  </section>
-  <!-- insert the Project grid block here -->
-</main>
-
-    <section class="job">
-      <h2>Senior GIS Analyst</h2>
-      <h3>Philadelphia Gas Works – Geographic Information Office</h3>
-      <p class="job-meta">Oct 2023 – Present | Philadelphia, PA | Full-time, 40 hrs/week</p>
-      <ul>
-        <li>Automated data collection and cleaning processes using Python and JavaScript, enhancing GIS data accuracy and reliability.</li>
-        <li>Managed and maintained the Esri Enterprise GIS environment to ensure seamless data accessibility and cross-team collaboration.</li>
-        <li>Designed and deployed ArcGIS Enterprise applications with Python and JavaScript, streamlining spatial analysis workflows.</li>
-        <li>Supervised data collection and editing from technicians, upholding data quality standards and meeting tight project deadlines.</li>
-        <li>Led a GNSS-enabled field data collection program, boosting spatial data precision and operational efficiency.</li>
-        <li>Developed and maintained custom dashboards and web maps to support decision-making for multiple departments.</li>
-        <li>Implemented GIS data quality audits and automated checks, reducing errors and rework in spatial datasets.</li>
-        <li>Coordinated cross-functional GIS projects supporting asset management, pipeline maintenance, and regulatory compliance.</li>
-        <li>Automated repetitive tasks with Power Automate and scripting, improving team productivity.</li>
-      </ul>
+      <h2>Professional <span class="muted">Projects</span></h2>
+      <p class="muted">Highlights from my work in GIS automation, ArcGIS Enterprise development, and Web AppBuilder customization.</p>
     </section>
 
-    <section class="job">
-      <h2>Solutions Engineer</h2>
-      <h3>Geographic Consulting Group International</h3>
-      <p class="job-meta">Jul 2023 – Oct 2023 | Alexandria, VA | Full-time, 40 hrs/week</p>
-      <ul>
-        <li>Developed Electric Utility Network models for U.S. military installations, aligning infrastructure with Esri’s Utility Network standards.</li>
-        <li>Created and delivered presentation materials advocating for Utility Network adoption across domestic and international military bases.</li>
-        <li>Wrote Python scripts to evaluate GEOFidelis data model readiness for integration with Esri’s Electric Utility Network framework.</li>
-        <li>Led analyst training sessions on implementing the Esri Utility Network and designing geospatial applications for operational insight.</li>
-      </ul>
+    <section class="section">
+      <h3>Projects</h3>
+      <div class="filters">
+        <button data-filter="all" class="chip active">All</button>
+        <button data-filter="python" class="chip">Python</button>
+        <button data-filter="javascript" class="chip">JavaScript</button>
+        <button data-filter="gis" class="chip">GIS</button>
+      </div>
+
+      <div id="project-grid" class="grid cards">
+        <article class="card" data-tags="python gis">
+          <header>
+            <h3>Schema Readiness Un-Migration</h3>
+            <p class="muted">Python · ArcGIS Enterprise · Automation</p>
+          </header>
+          <p>Migration safety tool comparing schema states and rolling back unsafe changes in enterprise databases.</p>
+          <footer>
+            <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank">View Code</a>
+          </footer>
+        </article>
+
+        <article class="card" data-tags="javascript gis">
+          <header>
+            <h3>ArcGIS Web AppBuilder Custom Widget</h3>
+            <p class="muted">JavaScript · WAB · Microsoft Forms</p>
+          </header>
+          <p>Interactive popup widget capturing map clicks, embedding MS Forms for user feedback within ArcGIS Enterprise.</p>
+          <footer>
+            <a class="btn small" href="https://github.com/Morganryan1/codespace/javascript/Solutions%20Engineer/projects" target="_blank">View Folder</a>
+          </footer>
+        </article>
+      </div>
     </section>
+  </main>
 
-    <section class="job">
-      <h2>Senior IT Applications Developer</h2>
-      <h3>Office of the Chief Information Officer – Geographic Information Office</h3>
-      <p class="job-meta">Jul 2022 – Jul 2023 | Lincoln, NE | Full-time, 40 hrs/week</p>
-      <ul>
-        <li>Utilized Python and JavaScript to automate data processes for large state datasets.</li>
-        <li>Applied Pandas, Arcpy, and ArcGIS Python API to streamline spatial analysis workflows.</li>
-        <li>Created Portal administration applications using PowerShell, Python, and JavaScript.</li>
-        <li>Maintained SQL databases for spatial analysis and supported agency GIS initiatives.</li>
-        <li>Provided technical GIS support to Nebraska State Agencies and coordinated enterprise data projects.</li>
-      </ul>
-    </section>
-
-    <section class="job">
-      <h2>Environmental Specialist I</h2>
-      <h3>Nebraska Department of Natural Resources – Floodplain Division</h3>
-      <p class="job-meta">Aug 2021 – Jul 2022 | Lincoln, NE | Full-time, 40 hrs/week</p>
-      <ul>
-        <li>Conducted watershed-scale modeling for FEMA submissions and Base Flood Elevation analyses.</li>
-        <li>Authored technical reports detailing flood
-  <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
+</body>
+</html>
