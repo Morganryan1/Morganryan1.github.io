@@ -13,7 +13,7 @@ class featureClass:
         self.feature_dataset = p.stem
         from arcpy import env
         # self.output_path = input("Paste the path of an output folder: ")
-        self.output_path = r'C:\Users\mryan\Documents\Project Work\USMC_UTILITY_NETWORK\El_Diablo_Threat_Sim'
+        self.output_path = r''
         env.workspace = self.path
 
     def gdb_unpack(self):
@@ -92,7 +92,7 @@ class featureClass:
     def Esri_UN_unpack(self):
         '''Unpacking all feature classes of the ESRI UN Data Model.'''
          # self.path = input("Paste the path for the ESRI Utility Foundation feature dataset: ")
-        self.path = r'C:\Users\mryan\Documents\Project Work\USMC_UTILITY_NETWORK\ElectricUtilityNetworkFoundationV2_2\Database\Electric_UtilityNetwork.gdb\UtilityNetwork'
+        self.path = r''
         p = Path(self.path)
         parent = p.parent
         self.feature_dataset = p.stem
