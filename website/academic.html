@@ -2,197 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Academic Background of Morgan M. Ryan - GIS and Geography" />
-  <title>Academic Background | Morgan M. Ryan</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academic | Morgan Ryan</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-<header class="site-header">
-  <a class="brand" href="/website/index.html">Morgan Ryan, MA</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="/website/index.html">Home</a>
-    <a href="/website/academic.html">Academic</a>
-    <a href="/website/professional.html">Professional</a>
-    <a href="/website/personal.html">Personal</a>
-    <a href="/website/assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
-  </nav>
-</header>
 
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html" class="active">Academic</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="assets/morgan_ryan_resume.pdf" class="btn small">Resume</a>
+    </nav>
+  </header>
 
-  <main>
+  <main class="main">
     <section class="section">
-  <h2>Featured <span class="muted">Projects</span></h2>
-  <div class="filters">
-    <button data-filter="all" class="chip active">All</button>
-    <button data-filter="python" class="chip">Python</button>
-    <button data-filter="javascript" class="chip">JavaScript</button>
-    <button data-filter="gis" class="chip">GIS</button>
-    <button data-filter="devops" class="chip">DevOps</button>
-  </div>
-
-  <div id="project-grid" class="grid cards">
-    <!-- Example card -->
-    <article class="card" data-tags="python gis">
-      <header>
-        <h3>Schema Readiness Un-Migration</h3>
-        <p class="muted">Python · ArcGIS Enterprise · Automation</p>
-      </header>
-      <p>Scripted migration safety tool to diff schema states and roll back unsafe moves during delivery windows.</p>
-      <footer>
-        <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank" rel="noopener">View Code</a>
-      </footer>
-    </article>
-
-    <!-- Add more <article> cards mirroring your repo layout -->
-  </div>
-</section>
-<script>
-  const chips = document.querySelectorAll('.chip');
-  const cards = document.querySelectorAll('#project-grid .card');
-  chips.forEach(c => c.addEventListener('click', () => {
-    chips.forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    const tag = c.dataset.filter;
-    cards.forEach(card => {
-      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
-      card.style.display = show ? '' : 'none';
-    });
-  }));
-</script>
-
-    <section id="education">
-      <h2>Education</h2>
-
-      <div class="degree">
-        <h3>Master of Arts in Geography</h3>
-        <p><strong>University of Nebraska–Lincoln</strong> | Lincoln, NE | Graduated May 2022</p>
-        <ul>
-          <li>GPA: 3.92</li>
-          <li>Focus Areas: GISystems, Web Cartography, Cultural Geography, Population Geography, Remote Sensing, Food Insecurity, Spatial Access</li>
-          <li>Thesis: <em>“Reexamining the Desert: A Study of Place-Based Food Insecurity”</em></li>
-          <li>Expanded USDA methodology for food desert identification using spatial and mixed-method analyses.</li>
-        </ul>
-      </div>
-
-      <div class="degree">
-        <h3>Bachelor of Science in Education</h3>
-        <p><strong>University of Nebraska–Lincoln</strong> | Lincoln, NE | Graduated May 2019</p>
-        <ul>
-          <li>Teaching Certificate with Endorsement in Social Sciences</li>
-          <li>Minors: Geography and History</li>
-          <li>GPA: 3.45 | Dean’s List (Spring 2017–Spring 2019)</li>
-          <li>Training in pedagogy, education psychology, technology integration, and critical thinking development.</li>
-        </ul>
-        <p>📄 <a href="../document/Transcript.pdf" target="_blank">View Transcripts</a></p>
-      </div>
+      <h2>Academic <span class="muted">Work</span></h2>
+      <p class="muted">Selected academic projects showcasing research and geospatial data analysis.</p>
     </section>
 
-    <section id="research">
-      <h2>Research Experience</h2>
-
-      <div class="research-item">
-        <h3>Reexamining The Desert: A Study Of Place-Based Food Insecurity</h3>
-        <p><em>Published Master’s Thesis</em></p>
-        <ul>
-          <li>Expanded USDA methodology for identifying food deserts through local contextual analysis.</li>
-          <li>Modeled food insecurity using place-specific socioeconomic and spatial variables.</li>
-          <li>Conducted fieldwork across 52 grocery stores in Lincoln, Nebraska.</li>
-        </ul>
+    <!-- Reusable Project Grid -->
+    <section class="section">
+      <h3>Projects</h3>
+      <div class="filters">
+        <button data-filter="all" class="chip active">All</button>
+        <button data-filter="python" class="chip">Python</button>
+        <button data-filter="gis" class="chip">GIS</button>
       </div>
 
-      <div class="research-item">
-        <h3>“What is Proper Place?”: Perceptions of High Schools in Lincoln</h3>
-        <p><em>Unpublished Research – Presented at Applied Geography Conference 2020</em></p>
-        <ul>
-          <li>Used QGIS to identify risk areas in Lincoln based on socioeconomic data.</li>
-          <li>Performed statistical correlation analysis between poverty and race in Lincoln, Nebraska.</li>
-          <li>Designed surveys to assess place perception among high school communities.</li>
-        </ul>
-      </div>
-    </section>
+      <div id="project-grid" class="grid cards">
+        <article class="card" data-tags="python gis">
+          <header>
+            <h3>LiDAR Terrain Analysis</h3>
+            <p class="muted">Python · ArcPy · Raster Processing</p>
+          </header>
+          <p>Automated workflow for classifying and modeling LiDAR-derived elevation surfaces for geospatial analysis.</p>
+          <footer>
+            <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Senior%20IT%20Applications%20Developer/projects" target="_blank">View Code</a>
+          </footer>
+        </article>
 
-    <section id="involvement">
-      <h2>University Involvement</h2>
-
-      <div class="involvement-item">
-        <h3>Graduate Teaching Assistant</h3>
-        <p><em>Geog 155, Geog 217, Geog 425 | August 2019 – Spring 2021</em></p>
-        <ul>
-          <li>Created GIS labs for a published Physical Geography Lab Manual and adapted them for ArcGIS Pro.</li>
-          <li>Taught GIS concepts, cartographic principles, and spatial analysis using ArcGIS Pro, QGIS, Leaflet, and the ArcGIS API for JavaScript.</li>
-          <li>Led a 3-hour seminar on creating interactive web maps using QGIS and Leaflet.</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Geography Representative, Graduate Student Association</h3>
-        <p><em>August 2020 – Spring 2021</em></p>
-        <ul>
-          <li>Created surveys and collected feedback to improve graduate student life.</li>
-          <li>Served on the Quality-of-Life Committee and contributed to GSA policy updates.</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Geography Student Organization (GSO)</h3>
-        <p><em>President (2018–2019, 2020–2021), Social Media Coordinator (2019–2020)</em></p>
-        <ul>
-          <li>Led club activities, academic events, and outreach to promote geography education.</li>
-          <li>Supervised events such as geography quiz bowls and social mixers.</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Gamma Theta Upsilon (Geography Honor Society)</h3>
-        <p><em>Inducted Spring 2018</em></p>
-        <ul>
-          <li>Maintained a 3.3 GPA in Geography and received the 2020 AAG Travel Grant.</li>
-          <li>Collaborated on initiatives promoting geographic literacy and student engagement.</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Supplemental Instructor & Academic Tutor</h3>
-        <ul>
-          <li>Facilitated Human Geography review sessions and taught 20+ students per semester.</li>
-          <li>Tutored statistics, humanities, and physical sciences (Spring 2018–2019).</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Student Teacher | Lincoln High School</h3>
-        <p><em>January 2019 – May 2019</em></p>
-        <ul>
-          <li>Taught U.S. History and Government; collaborated with faculty to support diverse learners.</li>
-        </ul>
-      </div>
-
-      <div class="involvement-item">
-        <h3>Fit4Lincoln Educator</h3>
-        <p><em>Norwood Park & Elliott Elementary | 2016–2017</em></p>
-        <ul>
-          <li>Taught elementary students about nutrition and physical fitness through after-school programs.</li>
-        </ul>
+        <!-- Add more cards here -->
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Morgan M. Ryan. All rights reserved.</p>
-  </footer>
-  <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>
