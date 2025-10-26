@@ -145,3 +145,26 @@ footer {
   background-color: #333;
   color: #fff;
 }
+
+/* ===== NAVIGATION ===== */
+.nav-links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.home-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
