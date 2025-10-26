@@ -22,6 +22,32 @@
 
 
   <main>
+    <section class="section">
+  <h2>Featured <span class="muted">Projects</span></h2>
+  <div class="filters">
+    <button data-filter="all" class="chip active">All</button>
+    <button data-filter="python" class="chip">Python</button>
+    <button data-filter="javascript" class="chip">JavaScript</button>
+    <button data-filter="gis" class="chip">GIS</button>
+    <button data-filter="devops" class="chip">DevOps</button>
+  </div>
+
+  <div id="project-grid" class="grid cards">
+    <!-- Example card -->
+    <article class="card" data-tags="python gis">
+      <header>
+        <h3>Schema Readiness Un-Migration</h3>
+        <p class="muted">Python · ArcGIS Enterprise · Automation</p>
+      </header>
+      <p>Scripted migration safety tool to diff schema states and roll back unsafe moves during delivery windows.</p>
+      <footer>
+        <a class="btn small" href="https://github.com/Morganryan1/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank" rel="noopener">View Code</a>
+      </footer>
+    </article>
+
+    <!-- Add more <article> cards mirroring your repo layout -->
+  </div>
+</section>
     <section>
       <h2>Experience</h2>
       <ul>
