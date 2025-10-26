@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional | Morgan Ryan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html">Academic</a>
+      <a href="professional.html" class="active">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="https://docs.google.com/document/d/1jKC3qUMxP40oKTWJP5UWiYUk6x5EW0rC/edit?usp=sharing&ouid=105088554021642874528&rtpof=true&sd=true" class="btn small">Resume</a>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Intro Section -->
+    <section class="section">
+      <h2>Professional <span class="muted">Projects</span></h2>
+      <p class="muted">
+        Highlights from my work in GIS automation, ArcGIS Enterprise development, and application development.
+      </p>
+    </section>
+
+    <!-- Project Cards Section -->
+    <section class="section">
+      <h3>Projects</h3>
+
+      <div class="filters">
+        <button data-filter="all" class="chip active">All</button>
+        <button data-filter="python" class="chip">Python</button>
+        <button data-filter="javascript" class="chip">JavaScript</button>
+        <button data-filter="gis" class="chip">GIS</button>
+      </div>
+
+      <div id="project-grid" class="grid cards">
+        <!-- Classic App Identifier --> <article class="card" data-tags="python gis"> <header> <h3>Classic App Identifier</h3> <p class="muted">Python · ArcPy · Enterprise GIS Automation</p> </header> <p> Developed a Python-driven tool to scan and identify legacy applications across GIS enterprise systems. The solution auto-detects outdated GIS services, categorizes them by usage and architecture, and outputs a report for modernization planning. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Senior%20IT%20Applications%20Developer/admin/ClassicAppIdentifier.py" target="_blank">View Code</a> </footer> </article> <!-- Feature Service Locator --> <article class="card" data-tags="python gis"> <header> <h3>Feature Service Locator</h3> <p class="muted">Python · ArcGIS REST API · GIS Services Inventory</p> </header> <p> Built a script to query all feature services in an ArcGIS Enterprise environment, log their endpoints, metadata, and usage statistics. Enables quick discovery of services and supports governance and auditing workflows. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Senior%20IT%20Applications%20Developer/admin/FeatureServiceLocator.py" target="_blank">View Code</a> </footer> </article> <!-- Metadata Check --> <article class="card" data-tags="python gis"> <header> <h3>Metadata Check</h3> <p class="muted">Python · ArcPy · Data Quality Automation</p> </header> <p> A Python tool that reviews GIS datasets for required metadata fields, flags missing or non-compliant entries, and generates a dashboard/report for data stewardship. Improves data readiness and supports enterprise metadata standards. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Senior%20IT%20Applications%20Developer/admin/MetadataCheck.py" target="_blank">View Code</a> </footer> </article> <!-- LiDAR Processing --> <article class="card" data-tags="python gis lidar"> <header> <h3>LiDAR Processing</h3> <p class="muted">Python · LiDAR · Raster & Point Cloud Workflow</p> </header> <p> Designed a processing chain for LiDAR datasets that automates classification, DEM/DTM generation, and tile mosaicking. Built to handle large-scale terrain and infrastructure projects efficiently. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Senior%20IT%20Applications%20Developer/projects/LiDARprocessing.py" target="_blank">View Code</a> </footer> </article> <!-- NDEE Swimming Pool --> <article class="card" data-tags="python gis"> <header> <h3>NDEE Swimming Pool Inventory</h3> <p class="muted">Python · ArcGIS Online · Environmental GIS</p> </header> <p> Developed for the Nebraska Department of Environment and Energy (NDEE), this script automates extraction and ingestion of swimming pool facility data into ArcGIS Online, enabling visualization and monitoring of recreational water resources. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Senior%20IT%20Applications%20Developer/projects/NDEE%20Swimmingpool.py" target="_blank">View Code</a> </footer> </article> <!-- Schema Readiness Un-Migration --> <article class="card" data-tags="python gis database"> <header> <h3>Schema Readiness & Un-Migration</h3> <p class="muted">Python · Database Design · GIS Data Engineering</p> </header> <p> A utility script that assesses GIS database schemas for migration readiness, identifies mismatches and deprecated structures, and can perform rollback of failed migrations. Ensures enterprise GIS data integrity during platform transitions. </p> <footer> <a class="btn small" href="codeviewer.html?src=https://raw.githubusercontent.com/Morganryan1/Morganryan1.github.io/main/codespace/python/Solutions%20Engineer/projects/SchemaReadinessUnMigration.py" target="_blank">View Code</a> </footer> </article>
+      </div>
+      <div class="scroll-hint">
+        <span>▼</span>
+      </div>
+    </section>
+
+    <section class="section" id="pgw">
+      <h3>Current Role: Senior GIS Analyst – Philadelphia Gas Works</h3>
+    
+      <div class="pgw-grid">
+        <!-- Text and image pair 1 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              At Philadelphia Gas Works (PGW), I lead geospatial data initiatives that support critical infrastructure
+              management, field operations, and regulatory compliance across the city’s natural gas network.
+              My work focuses on building automated, data-driven solutions that enhance accuracy, speed, and collaboration
+              within PGW’s enterprise GIS ecosystem. Because most of my work includes PII and secured data, I can't provide
+              live examples, however, I can show images of what some of my work looks like.
+            </p>
+          </div>
+          <img src="../images/pgw/Flex3Dashboard.png" alt="PGW Enterprise GIS Overview Dashboard" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 2 -->
+        <div class="pgw-item reverse">
+          <div class="pgw-text">
+            <p>
+              A major focus of my role is <strong>automating data collection and cleaning processes</strong> using Python, JavaScript,
+              and ArcGIS Enterprise tools. These automations reduce manual data entry, detect and correct geometry or schema inconsistencies,
+              and ensure our spatial databases meet rigorous accuracy standards. 
+              This image demonstraits a script that used multiprocessing to perform six hundred thousand edits in less than 10 minutes.
+              The result is a GIS system our engineers and field crews can trust for real-time decision-making.
+            </p>
+          </div>
+          <img src="../images/pgw/BulkUpdateScript.png" alt="Automated Data Cleaning Workflow" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 3 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              I also <strong>design and maintain ArcGIS Enterprise applications</strong> tailored to PGW’s operational workflows.
+              These include interactive dashboards, field collection tools, and web maps that visualize asset conditions,
+              pipeline maintenance status, and service requests. During one of my favorite projects, I needed to 
+              visualize nineteen million data points. Typically, an ArcGIS Enterprise Dashboard wouldn't be able
+              to handle this amount of data, but after creating a materialize view and indexing serveral filter fields,
+              the Dashboard performed querying and filtering without issue. Each application is built to streamline how departments
+              interact with geospatial data—making it faster to locate assets, assess field conditions, and report updates.
+            </p>
+          </div>
+          <img src="../images/pgw/BigDataDashboard.png" alt="19 Million Data Point Dashboard" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 4 -->
+        <div class="pgw-item reverse">
+          <div class="pgw-text">
+            <p>
+              I lead our <strong>GNSS-enabled field data collection program</strong>, integrating sub-meter accuracy
+              data from field crews into our enterprise database. By pairing GNSS technology with mobile GIS tools,
+              we’ve significantly improved positional precision and reduced post-processing time—
+              leading to faster updates and improved pipeline traceability. Here is an example of the applicaiton our
+              field crews use to review data that has been collected.
+            </p>
+          </div>
+          <img src="../images/pgw/FDCOperationsApp.png" alt="GNSS Field Data Collection App" loading="lazy" />
+        </div>
+    
+        <!-- Text and image pair 5 -->
+        <div class="pgw-item">
+          <div class="pgw-text">
+            <p>
+              To support operational visibility, I’ve developed <strong>custom dashboards and data quality audits</strong>
+              that track project progress, highlight anomalies, and automate data verification steps.
+              These systems provide near real-time insight into work orders, construction activities,
+              and asset updates—ensuring PGW’s spatial data remains complete and compliant.
+            </p>
+          </div>
+          <img src="../images/pgw/FeedBackApp.png" alt="GIS Data Quality Dashboard" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const filterButtons = document.querySelectorAll(".filters .chip");
+    const cards = document.querySelectorAll("#project-grid .card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // remove 'active' from all, add to the clicked one
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.getAttribute("data-filter");
+
+        cards.forEach(card => {
+          const tags = card.getAttribute("data-tags") || "";
+
+          if (filter === "all" || tags.toLowerCase().includes(filter.toLowerCase())) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

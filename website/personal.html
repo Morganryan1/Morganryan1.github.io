@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal | Morgan Ryan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">MR</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="academic.html">Academic</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html" class="active">Personal</a>
+      <a href="https://docs.google.com/document/d/1jKC3qUMxP40oKTWJP5UWiYUk6x5EW0rC/edit?usp=sharing&ouid=105088554021642874528&rtpof=true&sd=true" class="btn small">Resume</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="section">
+      <h2>Personal <span class="muted">Projects</span></h2>
+      <p class="muted">Creative and experimental projects that blend GIS, design, and automation for fun and learning.</p>
+    </section>
+
+    <section class="section">
+      <h3>Projects</h3>
+      <div id="project-grid" class="grid cards">
+        <article class="card" data-tags="python hobby">
+          <header>
+            <h3>Automated Hiking Trail Mapper</h3>
+            <p class="muted">Python · GIS · Leaflet</p>
+          </header>
+          <p>Generates and visualizes hiking trails with elevation profiles using GPS data and open-source mapping tools.</p>
+          <footer>
+            <a class="btn small" href="https://github.com/Morganryan1" target="_blank">View Code</a>
+          </footer>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
+</body>
+</html>
