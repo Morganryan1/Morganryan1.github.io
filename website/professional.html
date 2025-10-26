@@ -5,24 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Professional | Morgan Ryan</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Optional styling for the down arrow */
-    .scroll-down {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.5rem;
-      font-size: 2rem;
-      color: var(--muted, #888);
-      animation: bounce 1.8s infinite;
-      cursor: pointer;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(6px); }
-      60% { transform: translateY(3px); }
-    }
-  </style>
 </head>
 
 <body>
@@ -48,9 +30,8 @@
         Highlights from my work in GIS automation, ArcGIS Enterprise development, and application development.
       </p>
 
-      <!-- Animated down arrow -->
-      <div class="scroll-down" onclick="document.querySelector('#project-grid').scrollIntoView({behavior:'smooth'})">
-        ↓
+      <div class="scroll-hint">
+      <span>▼</span>
       </div>
     </section>
 
