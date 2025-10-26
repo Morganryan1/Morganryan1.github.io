@@ -224,3 +224,38 @@ footer {
   text-decoration: none;
 }
 
+/* --- About Section --- */
+#about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: var(--space-5);
+  line-height: 1.75;
+}
+
+#about h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+
+#about p {
+  margin-bottom: var(--space-3);
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+#about strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+#about em {
+  color: var(--brand);
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  #about {
+    padding: 0 1rem;
+  }
+}
