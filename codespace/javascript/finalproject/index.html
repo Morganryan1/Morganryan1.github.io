@@ -90,13 +90,13 @@
         pointToLayer: function (f, ll) { return L.marker(ll, { icon: hotelMarker }); },
         onEachFeature: function (f, l) { l.bindPopup('<b>Hotel:</b> ' + f.properties.Hotel); }
       });
-      HotelData.addTo(map); // Always on (you can omit it from the layer control)
 
       // Layer control (no Hotels since it's always on)
       var overlaymaps = {
         "Bars": BarData,
         "Historic Sites": HistoricData,
-        "Restaurants": FoodData
+        "Restaurants": FoodData,
+        "Meeting Location": HotelData
       };
       L.control.layers(null, overlaymaps, { collapsed:false }).addTo(map);
     </script>
