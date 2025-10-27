@@ -12,10 +12,8 @@
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" crossorigin=""></script>
     <script src="https://rawcdn.githack.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
 
-    <!-- Your data files -->
     <script src="https://morganryan1.github.io/codespace/javascript/finalproject/LincolnFood.js" crossorigin=""></script>
     <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Bars.js" crossorigin=""></script>
-    <!-- FIXED: remove the extra leading 'h' -->
     <script src="https://morganryan1.github.io/codespace/javascript/finalproject/HistoricS.js" crossorigin=""></script>
     <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Graduate.js" crossorigin=""></script>
 
@@ -88,7 +86,7 @@
       });
 
       // Hotel (Graduate.js must define: var Graduate = { ... })
-      var HotelData = new L.geoJson(Graduate, {
+      var HotelData = new L.geoJson(HotelData, {
         pointToLayer: function (f, ll) { return L.marker(ll, { icon: hotelMarker }); },
         onEachFeature: function (f, l) { l.bindPopup('<b>Hotel:</b> ' + f.properties.Hotel); }
       });
