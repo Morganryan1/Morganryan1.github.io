@@ -139,6 +139,14 @@
 						}
 						});
 
+						var HotelData = new L.geoJson(Graduate, {
+							pointToLayer: (f, ll) => L.marker(ll, { icon: hotelMarker }),
+							onEachFeature: (f, l) => l.bindPopup(
+							`<b>Hotel:</b> ${f.properties.Hotel}`
+							)
+						});
+						HotelData.addTo(map);
+
 
 		var overlaymaps = {
 				"Bars": BarData,
