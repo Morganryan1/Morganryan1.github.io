@@ -86,7 +86,7 @@
       });
 
       // Hotel (Graduate.js must define: var Graduate = { ... })
-      var HotelData = new L.geoJson(HotelData, {
+      var HotelData = new L.geoJson(hotelLocation, {
         pointToLayer: function (f, ll) { return L.marker(ll, { icon: hotelMarker }); },
         onEachFeature: function (f, l) { l.bindPopup('<b>Hotel:</b> ' + f.properties.Hotel); }
       });
