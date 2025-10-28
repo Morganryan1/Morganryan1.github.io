@@ -4,31 +4,21 @@
   <meta charset="UTF-8" />
   <title>GPRM Workshop 2021</title>
 
-  <!-- Leaflet Core (no integrity attributes) -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <!-- Leaflet Core -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <!-- MarkerCluster Plugin -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
   <!-- Custom Data -->
-  <script src="https://morganryan1.github.io/codespace/javascript/gprmworkshop/POIdata.js"></script>
+  <script src="https://morganryan2019.github.io/GPRMWorkshop/POIdata.js"></script>
+  <script src="https://morganryan2019.github.io/GPRMWorkshop/RegionData.js"></script>
 
-  <!-- Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Page Styles -->
   <style>
     html, body {
       height: 100%;
@@ -67,16 +57,15 @@
 
   <script>
     // ============================================================
-    //  GPRM WORKSHOP DEMO MAP (Fixed Version)
+    //  GPRM WORKSHOP DEMO MAP
     // ============================================================
 
-    // Initialize map
     var map = L.map("map", {
-      center: [41.5, -99.9], // Center on Nebraska
+      center: [41.5, -99.9],
       zoom: 6
     });
 
-    // Basemap layer
+    // Base layer
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         'Workshop demo by <a href="https://github.com/MorganRyan1">Morgan Ryan</a> | ' +
@@ -84,46 +73,77 @@
     }).addTo(map);
 
     // ============================================================
-    //  Point Data (POIdata.js)
+    //  Region Styling (matches legend)
     // ============================================================
 
+    function getColor(region) {
+      switch (region) {
+        case "NE": return "#845A94"; // Northeast
+        case "SE": return "#DA4167"; // Southeast
+        case "NC": return "#00A6A6"; // North Central
+        case "SC": return "#F9C80E"; // South Central
+        case "Pan": return "#F86624"; // Panhandle
+        default: return "#999999";
+      }
+    }
+
+    function style(feature) {
+      return {
+        fillColor: getColor(feature.properties.Location),
+        weight: 1.5,
+        opacity: 1,
+        color: "#333",       // darker border for contrast
+        dashArray: "3",
+        fillOpacity: 0.65    // slight transparency for basemap visibility
+      };
+    }
+
+    // ============================================================
+    //  Load Region Data
+    // ============================================================
+    var regionLayer;
+    if (typeof RegionData !== "undefined") {
+      regionLayer = L.geoJson(RegionData, {
+        style: style,
+        onEachFeature: function (feature, layer) {
+          var props = feature.properties || {};
+          layer.bindPopup(
+            "<b>County:</b> " + (props.NAMELSAD10 || "Unknown") +
+            "<br/><b>Region:</b> " + (props.Location || "N/A")
+          );
+        }
+      }).addTo(map);
+    } else {
+      console.error("⚠️ RegionData.js not found or invalid.");
+    }
+
+    // ============================================================
+    //  Load POI Data (Points)
+    // ============================================================
     if (typeof POIdata !== "undefined") {
-      var geojsonLayer = L.geoJson(POIdata, {
+      var poiLayer = L.geoJson(POIdata, {
         pointToLayer: function (feature, latlng) {
           return L.marker(latlng);
         },
         onEachFeature: function (feature, layer) {
           var props = feature.properties || {};
-          var popupContent =
-            "<b>Name:</b> " + (props.PlaceHolder || "Unknown") +
-            "<br/><hr/><b>Feature Class:</b> " + (props.HelpIAmStuck || "None");
-          layer.bindPopup(popupContent);
+          layer.bindPopup(
+            "<b>Name:</b> " + (props.name || "Unknown") +
+            "<br/><hr/><b>Feature Class:</b> " + (props.fclass || "None")
+          );
         }
       });
 
-      var markers = L.markerClusterGroup();
-      markers.addLayer(geojsonLayer);
-      map.addLayer(markers);
+      var clusterGroup = L.markerClusterGroup();
+      clusterGroup.addLayer(poiLayer);
+      map.addLayer(clusterGroup);
     } else {
-      alert("⚠️ POIdata.js not found or variable undefined.");
-      console.error("POIdata.js missing or undefined");
+      console.error("⚠️ POIdata.js not found or invalid.");
     }
 
     // ============================================================
-    //  Region Legend Example
+    //  Legend
     // ============================================================
-
-    function getColor(region) {
-      switch (region) {
-        case "NE": return "#845A94";
-        case "SE": return "#DA4167";
-        case "NC": return "#00A6A6";
-        case "SC": return "#F9C80E";
-        case "Pan": return "#F86624";
-        default: return "#999999";
-      }
-    }
-
     var legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function () {
@@ -138,10 +158,16 @@
       }
       return div;
     };
-
     legend.addTo(map);
 
-    // Scale bar
+    // ============================================================
+    //  Layer Control & Scale
+    // ============================================================
+    var overlays = {};
+    if (typeof regionLayer !== "undefined") overlays["Regions"] = regionLayer;
+    if (typeof clusterGroup !== "undefined") overlays["Points of Interest"] = clusterGroup;
+
+    L.control.layers(null, overlays, { collapsed: false }).addTo(map);
     L.control.scale({ position: "bottomleft" }).addTo(map);
   </script>
 </body>
