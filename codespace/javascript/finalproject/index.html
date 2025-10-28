@@ -1,104 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Welcome To The AAG GPRM Meeting For 2021!</title>
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome To The AAG GPRM Meeting For 2021!</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" crossorigin=""/>
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://rawcdn.githack.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
+  <link rel="stylesheet" href="https://rawcdn.githack.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css" />
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="https://rawcdn.githack.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://rawcdn.githack.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
 
-    <script src="https://morganryan1.github.io/codespace/javascript/finalproject/LincolnFood.js" crossorigin=""></script>
-    <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Bars.js" crossorigin=""></script>
-    <script src="https://morganryan1.github.io/codespace/javascript/finalproject/HistoricS.js" crossorigin=""></script>
-    <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Graduate.js" crossorigin=""></script>
+  <!-- Custom GeoJSON Data -->
+  <script src="https://morganryan1.github.io/codespace/javascript/finalproject/LincolnFood.js" crossorigin=""></script>
+  <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Bars.js" crossorigin=""></script>
+  <script src="https://morganryan1.github.io/codespace/javascript/finalproject/HistoricS.js" crossorigin=""></script>
+  <script src="https://morganryan1.github.io/codespace/javascript/finalproject/Graduate.js" crossorigin=""></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- Responsive Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <style>
-      html,body { margin: 0; padding: 0; height:100%; width: 100vw; }
-      #map { min-height: 100%; }
-    </style>
-  </head>
+  <!-- Page Styles -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100vw;
+    }
 
-  <body>
-    <div id="map"></div>
+    #map {
+      min-height: 100%;
+    }
+  </style>
+</head>
 
-    <script>
-      var map = L.map('map', { center: [40.813618, -96.705518], zoom: 15 });
+<body>
+  <div id="map"></div>
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>; Feature classes created by: <a href="https://github.com/MorganRyan2019/MorganRyan2019.github.io">Morgan Ryan</a> and Cari Dowden',
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
+  <script>
+    // ==============================================================
+    //  AAG GPRM 2021 Interactive Map
+    //  Author: Morgan Ryan
+    //  Purpose: Display local amenities and conference sites in Lincoln, NE
+    // ==============================================================
 
-      // Icons (ADD hotelMarker)
-      var barMarker     = L.AwesomeMarkers.icon({ icon: 'glass',      markerColor: 'red',     prefix: 'fa' });
-      var historicMarker= L.AwesomeMarkers.icon({ icon: 'university', markerColor: 'darkred', prefix: 'fa' });
-      var foodMarker    = L.AwesomeMarkers.icon({ icon: 'cutlery',    markerColor: 'lightred',prefix: 'fa' });
-      var hotelMarker   = L.AwesomeMarkers.icon({ icon: 'bed',        markerColor: 'blue',    prefix: 'fa' });
+    // Initialize map
+    var map = L.map("map", {
+      center: [40.813618, -96.705518],
+      zoom: 15
+    });
 
-      // Bars
-      var BarData = new L.geoJson(BarData, {
-        pointToLayer: function (feature, latlng) { return L.marker(latlng, { icon: barMarker }); },
-        onEachFeature: function(feature, layer){
-          layer.bindPopup(
-            '<b>Name:</b> ' + feature.properties.name +
-            '<br/><hr/>Hours: ' + feature.properties.opening_hours +
-            '<br/><hr/>Phone: ' + feature.properties.phone +
-            '<br/><hr/>Website: <a href="' + feature.properties.website + '">' + feature.properties.website + '</a>'
-          );
-        }
-      });
+    // Base tile layer
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors ' +
+        '&copy; <a href="https://carto.com/">CARTO</a> | ' +
+        'Feature classes created by: <a href="https://github.com/MorganRyan2019/MorganRyan2019.github.io">Morgan Ryan</a> and Cari Dowden',
+      subdomains: "abcd",
+      maxZoom: 20
+    }).addTo(map);
 
-      // Food
-      var FoodData = new L.geoJson(FoodData, {
-        pointToLayer: function (feature, latlng) { return L.marker(latlng, { icon: foodMarker }); },
-        onEachFeature: function(feature, layer){
-          layer.bindPopup(
-            '<b>Name:</b> ' + feature.properties.Restaurants +
-            '<br/><hr/>Price: ' + feature.properties.Price +
-            '<br/><hr/>Vegan Friendly: ' + feature.properties.Vegan +
-            '<br/><hr/>Vegetarian Friendly: ' + feature.properties.Vegetarian +
-            '<br/><hr/>Gluten Friendly: ' + feature.properties.GlutenFriendly +
-            '<br/><hr/>Cuisine: ' + feature.properties.Cuisine +
-            '<br/><hr/>Website: <a href="' + feature.properties.Website + '">' + feature.properties.Website + '</a>'
-          );
-        }
-      });
+    // ==============================================================
+    //  Custom Marker Icons
+    // ==============================================================
+    var barMarker      = L.AwesomeMarkers.icon({ icon: "glass",      markerColor: "red",      prefix: "fa" });
+    var historicMarker = L.AwesomeMarkers.icon({ icon: "university", markerColor: "darkred",  prefix: "fa" });
+    var foodMarker     = L.AwesomeMarkers.icon({ icon: "cutlery",    markerColor: "lightred", prefix: "fa" });
+    var hotelMarker    = L.AwesomeMarkers.icon({ icon: "bed",        markerColor: "blue",     prefix: "fa" });
 
-      // Historic
-      var HistoricData = new L.geoJson(HistoricData, {
-        pointToLayer: function (feature, latlng) { return L.marker(latlng, { icon: historicMarker }); },
-        onEachFeature: function(feature, layer){
-          layer.bindPopup(
-            '<b>Name:</b> ' + feature.properties.Name +
-            '<br/><hr/>Architect: ' + feature.properties.Architect +
-            '<br/><hr/>Year Built: ' + feature.properties.Yr_Built +
-            '<br/><hr/>Builder: ' + feature.properties.Builder
-          );
-        }
-      });
+    // ==============================================================
+    //  Bars
+    // ==============================================================
+    var BarData = new L.geoJson(BarData, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, { icon: barMarker });
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+          "<b>Name:</b> " + feature.properties.name +
+          "<br/><hr/>Hours: " + feature.properties.opening_hours +
+          "<br/><hr/>Phone: " + feature.properties.phone +
+          "<br/><hr/>Website: <a href='" + feature.properties.website + "'>" + feature.properties.website + "</a>"
+        );
+      }
+    });
 
-      // Hotel (Graduate.js must define: var Graduate = { ... })
-      var HotelData = new L.geoJson(hotelLocation, {
-        pointToLayer: function (f, ll) { return L.marker(ll, { icon: hotelMarker }); },
-        onEachFeature: function (f, l) { l.bindPopup('<b>Hotel:</b> ' + f.properties.Hotel); }
-      });
+    // ==============================================================
+    //  Food / Restaurants
+    // ==============================================================
+    var FoodData = new L.geoJson(FoodData, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, { icon: foodMarker });
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+          "<b>Name:</b> " + feature.properties.Restaurants +
+          "<br/><hr/>Price: " + feature.properties.Price +
+          "<br/><hr/>Vegan Friendly: " + feature.properties.Vegan +
+          "<br/><hr/>Vegetarian Friendly: " + feature.properties.Vegetarian +
+          "<br/><hr/>Gluten Friendly: " + feature.properties.GlutenFriendly +
+          "<br/><hr/>Cuisine: " + feature.properties.Cuisine +
+          "<br/><hr/>Website: <a href='" + feature.properties.Website + "'>" + feature.properties.Website + "</a>"
+        );
+      }
+    });
 
-      // Layer control (no Hotels since it's always on)
-      var overlaymaps = {
-        "Bars": BarData,
-        "Historic Sites": HistoricData,
-        "Restaurants": FoodData,
-        "Meeting Location": HotelData
-      };
-      L.control.layers(null, overlaymaps, { collapsed:false }).addTo(map);
-    </script>
-  </body>
+    // ==============================================================
+    //  Historic Sites
+    // ==============================================================
+    var HistoricData = new L.geoJson(HistoricData, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, { icon: historicMarker });
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+          "<b>Name:</b> " + feature.properties.Name +
+          "<br/><hr/>Architect: " + feature.properties.Architect +
+          "<br/><hr/>Year Built: " + feature.properties.Yr_Built +
+          "<br/><hr/>Builder: " + feature.properties.Builder
+        );
+      }
+    });
+
+    // ==============================================================
+    //  Hotel (Graduate Lincoln)
+    // ==============================================================
+    var HotelData = new L.geoJson(hotelLocation, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, { icon: hotelMarker });
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup("<b>Hotel:</b> " + feature.properties.Hotel);
+      }
+    });
+
+    // ==============================================================
+    //  Layer Control
+    // ==============================================================
+    var overlaymaps = {
+      "Bars": BarData,
+      "Restaurants": FoodData,
+      "Historic Sites": HistoricData,
+      "Meeting Location": HotelData
+    };
+
+    L.control.layers(null, overlaymaps, { collapsed: false }).addTo(map);
+  </script>
+</body>
 </html>
