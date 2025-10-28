@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<html>
+	<head>
+			<title>GPRM Workshop 2021</title>
+
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+
+			  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+
+			  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+
+				<link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.css" />
+
+			  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+			  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+
+				<script src="https://MorganRyan2019.github.io/GPRMWorkshop/POIdata.js"crossorigin=""></script>
+
+				<script src="https://"crossorigin=""></script>
+
+
+
+
+				<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+			<style type="text/css">
+					html,body{ margin: 0; padding: 0; height:100%; width: 100vw; }
+					#map{ min-height: 10%; }
+					</style>
+
+					<style>
+					.legend {
+	    line-height: 18px;
+			display: block;
+			background: white;
+	    opacity: .7;
+	}
+	.legend i {
+	    width: 18px;
+	    height: 18px;
+	    float: left;
+	    margin-right: 8px;
+	    opacity: 0.5;
+			backgroud
+	}
+			</style>
+
+		</head>
+
+		<body>
+
+			<div id="map"></div>
+
+			<script type="text/javascript">
+
+					var map = L.map('map', {
+							center: [41.4925, -99.9018],
+							zoom: 1000
+							});
+// basemap
+					var canvas = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}',{
+							attribution: 'YOURNAMEHERE <a href="YOURGITHUB">Github Page</a>, Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+							subdomains: 'abcd',
+							minZoom: 0,
+							maxZoom: 20,
+							ext: 'png'
+						}).addTo(map);
+
+// styling for points
+var geojsonMarkerOption = {
+
+}
+// Point Data
+            var feature1 = new L.geoJson(POIdata,{
+				pointToLayer: function (feature1, latlng) {
+				return L.marker(latlng)
+			},
+			onEachFeature: function(feature1, layer){
+			layer.bindPopup('<b>'+'Name: '+'</b>' + feature1.properties.PlaceHolder
+			+ '<br/>' + '<hr />'+'Feature Class: '+ feature1.properties.HelpIAmStuck);
+			}
+			});
+
+//PolygonStyling
+
+function getColor(value) {
+                return value == "NE" ? '#NotCorrect':
+                       value == "SE"  ? '#NotCorrect':
+                       value == "NC"  ? '#Correct':
+                       value == "SC"  ? '#JKThatWasALie':
+											 value == "Pan" ? '#MorganRyanWasHere':
+                                     '#000000';
+            }
+
+
+
+			 function style(feature){
+                return {
+                    fillColor: getColor(feature.properties.GradStudentHopesAndDreams),
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+										dashArray: '3',
+                    fillOpacity: .5
+                };
+            }
+
+//PolygonRegionData
+		var Polystyle = new L.geoJson(RegionData, {
+			style:style
+		});
+
+
+// Clustering Package
+            var markers = L.markerClusterGroup({
+
+							polygonOptions: {
+									fillColor: '#845A94',
+									color: '#845A94',
+									weight: 0.5,
+									opacity: 0.5,
+									fillOpacity: 0.1
+							}
+						});
+
+            markers.addLayer(feature1);
+
+            map.addLayer(markers);
+
+//LayerSwitchData
+
+				var overlayData = {
+						"Location": Polystyle
+};
+
+//legend function
+
+		var regionlegend = L.control();
+
+
+			regionlegend.onAdd = function () {
+	//classbreaks
+				var div = L.DomUtil.create('div', 'legend');
+				categories = ['Welcome','To','The','Workshop', 'Have Fun'];
+
+				for (var i = 0; i < categories.length; i++) {
+					div.innerHTML +=
+					'<i style= "background:' + getColor(categories[i]) + '"></i> ' +
+					(categories[i] ? categories[i] + '<br>' : '+');
+				}
+				return div;
+			};
+
+regionlegend.addTo(map);
+
+//scale background
+L.control.scale({position: 'bottomleft'}).addTo(map)
+
+// Layer Switch
+	L.control.layers(null, overlayData,{position: 'bottomleft'}).addTo(map);
+
+
+</script>
+</body>
+</html>

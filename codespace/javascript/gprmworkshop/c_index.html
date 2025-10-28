@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GPRM Workshop 2021</title>
+
+  <!-- Leaflet Core (no integrity attributes) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- MarkerCluster Plugin -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Custom Data -->
+  <script src="https://morganryan2019.github.io/GPRMWorkshop/POIdata.js"></script>
+
+  <!-- Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Page Styles -->
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    .legend {
+      background: white;
+      padding: 6px 10px;
+      line-height: 18px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script>
+    // ============================================================
+    //  GPRM WORKSHOP DEMO MAP (Fixed Version)
+    // ============================================================
+
+    // Initialize map
+    var map = L.map("map", {
+      center: [41.5, -99.9], // Center on Nebraska
+      zoom: 6
+    });
+
+    // Basemap layer
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        'Workshop demo by <a href="https://github.com/MorganRyan1">Morgan Ryan</a> | ' +
+        "© <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors"
+    }).addTo(map);
+
+    // ============================================================
+    //  Point Data (POIdata.js)
+    // ============================================================
+
+    if (typeof POIdata !== "undefined") {
+      var geojsonLayer = L.geoJson(POIdata, {
+        pointToLayer: function (feature, latlng) {
+          return L.marker(latlng);
+        },
+        onEachFeature: function (feature, layer) {
+          var props = feature.properties || {};
+          var popupContent =
+            "<b>Name:</b> " + (props.PlaceHolder || "Unknown") +
+            "<br/><hr/><b>Feature Class:</b> " + (props.HelpIAmStuck || "None");
+          layer.bindPopup(popupContent);
+        }
+      });
+
+      var markers = L.markerClusterGroup();
+      markers.addLayer(geojsonLayer);
+      map.addLayer(markers);
+    } else {
+      alert("⚠️ POIdata.js not found or variable undefined.");
+      console.error("POIdata.js missing or undefined");
+    }
+
+    // ============================================================
+    //  Region Legend Example
+    // ============================================================
+
+    function getColor(region) {
+      switch (region) {
+        case "NE": return "#845A94";
+        case "SE": return "#DA4167";
+        case "NC": return "#00A6A6";
+        case "SC": return "#F9C80E";
+        case "Pan": return "#F86624";
+        default: return "#999999";
+      }
+    }
+
+    var legend = L.control({ position: "bottomright" });
+
+    legend.onAdd = function () {
+      var div = L.DomUtil.create("div", "legend");
+      var regions = ["NE", "SE", "NC", "SC", "Pan"];
+
+      div.innerHTML += "<b>Regions</b><br/>";
+      for (var i = 0; i < regions.length; i++) {
+        div.innerHTML +=
+          '<i style="background:' + getColor(regions[i]) + '"></i> ' +
+          regions[i] + "<br/>";
+      }
+      return div;
+    };
+
+    legend.addTo(map);
+
+    // Scale bar
+    L.control.scale({ position: "bottomleft" }).addTo(map);
+  </script>
+</body>
+</html>
