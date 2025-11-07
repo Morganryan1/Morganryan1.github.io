@@ -216,6 +216,13 @@ body {
   }
 }
 
+.timeline {
+  font-size: 0.85em;
+  color: #888;          /* softer gray tone */
+  margin-top: 0.3em;
+  letter-spacing: 0.3px;
+}
+
 /* =========================================================
    ABOUT SECTION
 ========================================================= */
